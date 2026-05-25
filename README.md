@@ -1,3 +1,6 @@
+# Unity UPM安装：
+`https://github.com/XuToWei/MemoryPack-Extension.git?path=src/MemoryPack.Unity/Assets/Plugins/MemoryPack`
+
 # MemoryPack
 
 [![NuGet](https://img.shields.io/nuget/v/MemoryPack.svg)](https://www.nuget.org/packages/MemoryPack)
