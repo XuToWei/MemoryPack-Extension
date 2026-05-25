@@ -35,7 +35,7 @@ public static partial class MemoryPackSerializer
             {
                 MemoryPackSerializationException.ThrowInvalidRange(Unsafe.SizeOf<T>(), buffer.Length);
             }
-            value = Unsafe.ReadUnaligned<T>(ref MemoryMarshal.GetReference(buffer));
+            value = SafeUnsafe.ReadUnaligned<T>(ref MemoryMarshal.GetReference(buffer));
             return Unsafe.SizeOf<T>();
         }
 
@@ -62,7 +62,7 @@ public static partial class MemoryPackSerializer
     public static T? Deserialize<T>(in ReadOnlySequence<byte> buffer, MemoryPackSerializerOptions? options = default)
     {
         T? value = default;
-        Deserialize<T>(buffer, ref value);
+        Deserialize<T>(buffer, ref value, options);
         return value;
     }
 
