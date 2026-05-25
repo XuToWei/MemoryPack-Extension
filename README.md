@@ -1,4 +1,4 @@
-# Unity UPM安装：
+# 本版本修复了ARM32位内存对齐导致崩溃问题，Unity UPM安装：
 `https://github.com/XuToWei/MemoryPack-Extension.git?path=src/MemoryPack.Unity/Assets/Plugins/MemoryPack`
 
 # MemoryPack
