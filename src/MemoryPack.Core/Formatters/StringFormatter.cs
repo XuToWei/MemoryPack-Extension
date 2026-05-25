@@ -166,7 +166,7 @@ public sealed class BrotliStringFormatter : MemoryPackFormatter<string>
             MemoryPackSerializationException.ThrowCompressionFailed();
         }
 
-        Unsafe.WriteUnaligned(ref spanRef, value.Length);
+        SafeUnsafe.WriteUnaligned(ref spanRef, value.Length);
         writer.Advance(bytesWritten + 4);
     }
 

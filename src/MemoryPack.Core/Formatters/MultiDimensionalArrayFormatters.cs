@@ -32,7 +32,7 @@ public sealed class TwoDimensionalArrayFormatter<T> : MemoryPackFormatter<T?[,]>
             ref var src = ref MemoryMarshal.GetArrayDataReference(value);
             ref var dest = ref writer.GetSpanReference(byteCount + 4);
 
-            Unsafe.WriteUnaligned(ref dest, value.Length);
+            SafeUnsafe.WriteUnaligned(ref dest, value.Length);
             Unsafe.CopyBlockUnaligned(ref Unsafe.Add(ref dest, 4), ref src, (uint)byteCount);
             writer.Advance(byteCount + 4);
         }
@@ -144,7 +144,7 @@ public sealed class ThreeDimensionalArrayFormatter<T> : MemoryPackFormatter<T?[,
             ref var src = ref MemoryMarshal.GetArrayDataReference(value);
             ref var dest = ref writer.GetSpanReference(byteCount + 4);
 
-            Unsafe.WriteUnaligned(ref dest, value.Length);
+            SafeUnsafe.WriteUnaligned(ref dest, value.Length);
             Unsafe.CopyBlockUnaligned(ref Unsafe.Add(ref dest, 4), ref src, (uint)byteCount);
             writer.Advance(byteCount + 4);
         }
@@ -263,7 +263,7 @@ public sealed class FourDimensionalArrayFormatter<T> : MemoryPackFormatter<T?[,,
             ref var src = ref MemoryMarshal.GetArrayDataReference(value);
             ref var dest = ref writer.GetSpanReference(byteCount + 4);
 
-            Unsafe.WriteUnaligned(ref dest, value.Length);
+            SafeUnsafe.WriteUnaligned(ref dest, value.Length);
             Unsafe.CopyBlockUnaligned(ref Unsafe.Add(ref dest, 4), ref src, (uint)byteCount);
             writer.Advance(byteCount + 4);
         }

@@ -28,9 +28,9 @@ public ref partial struct MemoryPackReader
     {
         var size = <#= MakeSize(i) #>;
         ref var spanRef = ref GetSpanReference(size);
-        value1 = Unsafe.ReadUnaligned<T1>(ref spanRef);
+        value1 = SafeUnsafe.ReadUnaligned<T1>(ref spanRef);
 <# for(var j = 2; j <= i; j++) { #>
-        value<#= j #> = Unsafe.ReadUnaligned<T<#= j #>>(ref Unsafe.Add(ref spanRef, <#= MakeSize(j - 1) #>));
+        value<#= j #> = SafeUnsafe.ReadUnaligned<T<#= j #>>(ref Unsafe.Add(ref spanRef, <#= MakeSize(j - 1) #>));
 <# } #>
         Advance(size);
     }
